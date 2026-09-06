@@ -1,27 +1,46 @@
 -- ==========================================
--- 🔒 WHITELIST
+-- 🔒 WHITELIST + CARGADOR AUTOMÁTICO
 -- ==========================================
+
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
-
 local whitelist = {
-    [9768841971] = true,
-    [8407811443] = true,
+    [9768841971] = true,   
     [5092801562] = true,
     [8628137067] = true,
     [5552463878] = true,
+    [8407811443] = true,   
 }
 
+-- 🔍 VERIFICACIÓN DE ACCESO
 if not whitelist[LocalPlayer.UserId] then
-    warn("⛔ ACCESO DENEGADO: " .. LocalPlayer.Name)
-    script:Destroy()
+    warn("⛔ ACCESO DENEGADO: " .. LocalPlayer.Name .. " | No estás en la lista blanca")
     return
 end
 
-print("✅ ACCESO PERMITIDO: " .. LocalPlayer.Name)
+print("✅ ACCESO PERMITIDO — Bienvenido, " .. LocalPlayer.Name)
 
--- ==========================================
--- ==========================================
+-- 📥 URL DE TU CÓDIGO EN GITHUB (YA CONFIGURADA)
+local CODIGO_URL = "https://raw.githubusercontent.com/painisaac50-gif/Pain-Killer-Private/refs/heads/main/killer%20private"
+
+-- 🔄 CARGA AUTOMÁTICA DE LA VERSIÓN MÁS RECIENTE
+local exito, respuesta = pcall(function()
+    return game:HttpGet(CODIGO_URL)
+end)
+
+if not exito then
+    warn("❌ ERROR AL CARGAR: " .. tostring(respuesta))
+    return
+end
+
+-- ▶️ EJECUTA EL CÓDIGO ACTUALIZADO
+local cargar, errorCarga = loadstring(respuesta)
+if cargar then
+    print("✅ SCRIPT CARGADO Y ACTUALIZADO CORRECTAMENTE")
+    cargar()
+else
+    warn("❌ ERROR EN EL CÓDIGO: " .. tostring(errorCarga))
+end
 --[[
     Kill - Ml Main
     by Isaac @xXThe_PainIsaacXx
