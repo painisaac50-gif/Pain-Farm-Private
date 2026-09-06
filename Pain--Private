@@ -1,12 +1,11 @@
--- ==========================================
--- 🔒 WHITELIST + ACTUALIZACIÓN AUTOMÁTICA
--- ==========================================
+lua
 
+-- ==========================================
+-- 🔒 WHITELIST
+-- ==========================================
 local Players = game:GetService("Players")
-local HttpService = game:GetService("HttpService")
 local LocalPlayer = Players.LocalPlayer
 
--- ✅ CUENTAS PERMITIDAS
 local whitelist = {
     [9768841971] = true,
     [5092801562] = true,
@@ -15,35 +14,38 @@ local whitelist = {
     [8407811443] = true,
 }
 
--- 🔍 VERIFICACIÓN
 if not whitelist[LocalPlayer.UserId] then
     warn("⛔ ACCESO DENEGADO: " .. LocalPlayer.Name)
+    script:Destroy()
     return
 end
 
-print("✅ ACCESO PERMITIDO — Bienvenido, " .. LocalPlayer.Name)
+print("✅ ACCESO PERMITIDO: " .. LocalPlayer.Name)
 
--- 📥 URL DE TU CÓDIGO EN GITHUB
-local CODIGO_URL = "https://raw.githubusercontent.com/painisaac50-gif/Pain-Killer-Private/refs/heads/main/killer%20private"
+-- ==========================================
+-- ==========================================
+--[[
+    Kill - ML Main
+    by Isaac @xXThe_PainIsaacXx
+]]
 
--- 🔄 CARGA LA VERSIÓN MÁS RECIENTE
-local exito, respuesta = pcall(function()
-    return HttpService:GetAsync(CODIGO_URL)
-end)
+local Services = {
+    Players = game:GetService("Players"),
+    ReplicatedStorage = game:GetService("ReplicatedStorage"),
+    VirtualUser = game:GetService("VirtualUser"),
+    Workspace = workspace,
+    Lighting = game:GetService("Lighting"),
+    UserInputService = game:GetService("UserInputService"),
+    VirtualInputManager = game:GetService("VirtualInputManager"),
+    RunService = game:GetService("RunService")
+}
 
-if not exito then
-    warn("❌ ERROR AL CARGAR: " .. tostring(respuesta))
-    return
-end
-
--- ▶️ EJECUTA EL CÓDIGO
-local cargar, errorCarga = loadstring(respuesta)
-if cargar then
-    print("✅ SCRIPT CARGADO Y ACTUALIZADO")
-    task.spawn(cargar)
-else
-    warn("❌ ERROR EN EL CÓDIGO: " .. tostring(errorCarga))
-end
+local PlayerData = {
+    Player = Services.Players.LocalPlayer,
+    DisplayName = Services.Players.LocalPlayer.DisplayName,
+    Character = Services.Players.LocalPlayer.Character,
+    Humanoid = nil,
+    Camera = Services.Workspace.CurrentCamera,
 --[[
     Kill - Ml Main
     by Isaac @xXThe_PainIsaacXx
