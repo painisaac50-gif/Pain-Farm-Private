@@ -1,7 +1,7 @@
 --[[
     Ml - Pain Private
-    by Henne @xyzhenrik_
-       Muki @mukimagdich
+    by Isaac @xXThe_PainIsaacXx
+       
 ]]
 
 local services = {
