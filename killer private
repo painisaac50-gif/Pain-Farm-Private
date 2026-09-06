@@ -103,8 +103,8 @@ local Tabs = {
 }
 
 Tabs.Info:Show()
-Tabs.Info:AddLabel("Made by Henne")
-Tabs.Info:AddLabel("Any issues? Ping @xyzhenrik_ on Discord")
+Tabs.Info:AddLabel("Made by xXThe_PainIsaacXx")
+Tabs.Info:AddLabel("Any issues? Ping @isaa1c38_ on Discord")
 Tabs.Info:AddLabel("Official Discord: discord.gg/9eFf93Kg8D")
 Tabs.Info:AddButton("Copy Invite", function()
 	if setclipboard then
