@@ -1,3 +1,21 @@
+-- 🔒 WHITELIST
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local whitelist = {
+    [9768841971] = true,
+    [5092801562] = true,
+    [8628137067] = true,
+    [5552463878] = true,
+    [8407811443] = true,
+}
+
+if not whitelist[LocalPlayer.UserId] then
+    warn("⛔ ACCESO DENEGADO: " .. LocalPlayer.Name)
+    return
+end
+
+print("✅ ACCESO PERMITIDO: " .. LocalPlayer.Name)
 --[[
     Kill - Ml Main
     by Isaac @xXThe_PainIsaacXx
