@@ -1332,4 +1332,4 @@ tabs.other:AddButton("Equip Rep Pets", function()
 end)
 
 tabs.info:Show()
-tabs.info:AddLabel("made by henne & muki").TextSize = 17
+tabs.info:AddLabel("made by xXThe_PainIsaacXx").TextSize = 17
