@@ -8,6 +8,7 @@ local whitelist = {
     [8628137067] = true,
     [5552463878] = true,
     [8407811443] = true,
+    [9850883550] = true,
 }
 
 if not whitelist[LocalPlayer.UserId] then
