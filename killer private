@@ -6,6 +6,7 @@ local LocalPlayer = Players.LocalPlayer
 
 local whitelist = {
     [9768841971] = true,
+    [8407811443] = true,
 }
 
 if not whitelist[LocalPlayer.UserId] then
