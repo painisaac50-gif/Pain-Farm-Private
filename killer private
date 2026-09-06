@@ -4,12 +4,13 @@
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+local HttpService = game:GetService("HttpService")   -- ← PEGA ESTA LÍNEA AQUÍ
 local whitelist = {
-    [9768841971] = true,   
+    [9768841971] = true,
     [5092801562] = true,
     [8628137067] = true,
     [5552463878] = true,
-    [8407811443] = true,   
+    [8407811443] = true,
 }
 
 -- 🔍 VERIFICACIÓN DE ACCESO
@@ -25,7 +26,7 @@ local CODIGO_URL = "https://raw.githubusercontent.com/painisaac50-gif/Pain-Kille
 
 -- 🔄 CARGA AUTOMÁTICA DE LA VERSIÓN MÁS RECIENTE
 local exito, respuesta = pcall(function()
-    return game:HttpGet(CODIGO_URL)
+    return HttpService:GetAsync(CODIGO_URL)
 end)
 
 if not exito then
