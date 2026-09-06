@@ -1,3 +1,45 @@
+-- ==========================================
+-- 🔒 WHITELIST + CARGADOR AUTOMÁTICO
+-- ==========================================
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- ✅ USUARIOS PERMITIDOS
+local whitelist = {
+    [9768841971] = true,
+    [8407811443] = true,
+}
+
+-- 🔍 VERIFICACIÓN
+if not whitelist[LocalPlayer.UserId] then
+    warn("⛔ ACCESO DENEGADO: " .. LocalPlayer.Name)
+    return
+end
+
+print("✅ Bienvenido, " .. LocalPlayer.Name .. " | Cargando versión más reciente...")
+
+-- 📥 URL DE TU CÓDIGO (ya configurada)
+local CODIGO_URL = "https://raw.githubusercontent.com/painisaac50-gif/Pain-Killer-Private/refs/heads/main/killer%20private"
+
+-- 🔄 CARGA AUTOMÁTICA DESDE GITHUB
+local exito, respuesta = pcall(function()
+    return game:HttpGet(CODIGO_URL)
+end)
+
+if not exito then
+    warn("❌ Error al cargar: " .. tostring(respuesta))
+    return
+end
+
+-- ▶️ EJECUTA EL CÓDIGO ACTUALIZADO
+local cargar, errorCarga = loadstring(respuesta)
+if cargar then
+    print("✅ Script actualizado y listo")
+    cargar()
+else
+    warn("❌ Error en el código: " .. tostring(errorCarga))
+end
 --[[
     Kill - Ml Main
     by Isaac @xXThe_PainIsaacXx
