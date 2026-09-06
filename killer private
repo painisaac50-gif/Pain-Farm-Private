@@ -105,10 +105,10 @@ local Tabs = {
 Tabs.Info:Show()
 Tabs.Info:AddLabel("Made by xXThe_PainIsaacXx")
 Tabs.Info:AddLabel("Any issues? Ping @isaa1c38_ on Discord")
-Tabs.Info:AddLabel("Official Discord: discord.gg/9eFf93Kg8D")
+Tabs.Info:AddLabel("Official Discord: https://discord.gg/gakc9fFk")
 Tabs.Info:AddButton("Copy Invite", function()
 	if setclipboard then
-		setclipboard("https://discord.gg/9eFf93Kg8D")
+		setclipboard("https://discord.gg/gakc9fFk")
 		game.StarterGui:SetCore("SendNotification", {Title = "Link Copied!", Text = "You can continue to Discord now.", Duration = 3})
 	else
 		game.StarterGui:SetCore("SendNotification", {Title = "Error!", Text = "Clipboard not Supported.", Duration = 3})
